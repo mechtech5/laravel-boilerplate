@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
     <div class="container">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsMain" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -10,19 +10,21 @@
                 <a class="nav-link {{ active_class(if_route('home')) }}" href="{{ route('home') }}">
                     <font-awesome-icon icon="home"></font-awesome-icon>
                 </a>
-                <a class="nav-link {{ active_class(if_route('about')) }}"
-                   href="{{ route('about') }}">@lang('labels.frontend.titles.about')</a>
                 @if(config('blog.enabled'))
                     <a class="nav-link {{ active_class(if_route_pattern('blog.*')) }}"
                        href="{{ route('blog.index') }}">@lang('labels.frontend.titles.blog')</a>
                 @endif
+                <a class="nav-link {{ active_class(if_route_pattern('portfolio.*')) }}"
+                       href="{{ route('portfolio.index') }}">Portfolio</a>
+                <a class="nav-link {{ active_class(if_route('about')) }}"
+                   href="{{ route('about') }}">@lang('labels.frontend.titles.about')</a>
                 <a class="nav-link {{ active_class(if_route('contact')) }}"
                    href="{{ route('contact') }}">@lang('labels.frontend.titles.contact')</a>
             </div>
 
             <div class="navbar-nav">
-                @if (count(config('laravellocalization.supportedLocales')) > 1)
-                    <div class="nav-item dropdown">
+                {{-- @if (count(config('laravellocalization.supportedLocales')) > 1) --}}
+                    {{-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ __('labels.language') }}
                         </a>
@@ -30,8 +32,8 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
                             @include('partials.locales')
                         </div>
-                    </div>
-                @endif
+                    </div> --}}
+                {{-- @endif --}}
                 @guest
                     <a class="nav-link" href="{{ route('login') }}">@lang('labels.user.login')</a>
                     @if (config('account.can_register'))

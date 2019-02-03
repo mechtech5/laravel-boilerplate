@@ -12,6 +12,8 @@ Route::match(['GET', 'POST'],
     'PagesController@contact'
 )->name('contact');
 
+Route::view('portfolio', 'frontend/pages/portfolio')->name('portfolio.index');
+
 Route::get(
     LaravelLocalization::transRoute('routes.contact-sent'),
     'PagesController@contactSent'
